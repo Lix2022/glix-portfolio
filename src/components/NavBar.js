@@ -36,7 +36,7 @@ export const NavBar = () => {
     <Router>
       <Navbar expand="sm" className={scrolled ? "scrolled" : ""}>
         <Container>
-          <Navbar.Brand href="/">
+          <Navbar.Brand href="https://lix2022.github.io/My-Personal-Portfolio/">
           <img src={logo} alt="Logo" className="logo-img" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
@@ -57,6 +57,7 @@ export const NavBar = () => {
               </div>
               <HashLink to='#connect'>
                 <button className="vvd"><span>Let’s Connect</span></button>
+                
               </HashLink>
             </span>
           </Navbar.Collapse>
