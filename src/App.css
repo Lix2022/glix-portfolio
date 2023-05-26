@@ -95,7 +95,7 @@ nav.navbar.scrolled {
   background-color: #121212;
 }
 nav.navbar a.navbar-brand {
-    width: 9%;
+    width: 5%;
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
@@ -321,7 +321,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     font-size: 18px;
     letter-spacing: 0.8px;
     line-height: 1.5em;
-    margin: 14px 0 75px 0;
+    margin: 14px auto 30px auto;
+    text-align: center;
 }
 .skill-slider {
   width: 80%;
@@ -358,7 +359,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   line-height: 1.5em;
   margin: 14px auto 30px auto;
   text-align: center;
-  width: 56%;
+  width: 80%;
 }
 .project .nav.nav-pills {
   width: 72%;
@@ -469,7 +470,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /************ Projects Css ************/
 .contact {
   background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-  padding: 60px 0 200px 0;
+  padding: 60px 0 100px 0;
 }
 .contact img {
   width: 92%;
@@ -545,8 +546,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+
 }
-.newsletter-bx {
+/*.newsletter-bx {
   background: #FFFFFF;
   border-radius: 55px;
   color: #121212;
@@ -558,7 +560,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-weight: 700;
   letter-spacing: 0.5px;
   line-height: 1.2em;
-}
+}*/
 .new-email-bx {
   background: #fff;
   padding: 5px;
@@ -607,12 +609,42 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-radius: 18px;
 }
 .footer img {
-  width: 26%;
+  width: 15%;
+  
 }
+
 .footer p {
   font-weight: 400;
   font-size: 14px;
   color: #B8B8B8;
   letter-spacing: 0.5px;
   margin-top: 20px;
+}
+
+.footer{
+  align-items: center!important;
+  padding-top: 5%;
+
+}
+
+
+@media (max-width: 768px) {
+  .social-icon {
+    margin-top: 40px; /* Adjust the value as per your needs */
+  }
+}
+
+.logo-img {
+  width: 50px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  
+}
+
+@media (max-width: 768px) {
+  .logo-img{
+    padding-top: 8%;
+    padding-bottom: 8%;
+  }
+
+  
 }
