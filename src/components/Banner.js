@@ -4,6 +4,7 @@ import headerImg from "../assets/img/header-image.png";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import { Link } from 'react-scroll';
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -58,7 +59,17 @@ export const Banner = () => {
                 <span className="tagline">Welcome to my Portfolio</span>
                 <h1>{`Hi! I'm Felix`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
                   <p> a multi-talented professional with expertise in web development, web design, graphic design, programming, and video editing. With a passion for creating captivating digital experiences, I bring a diverse skill set to every project I undertake.</p>
-                  <button onClick={() =>  window.location.replace("/#connect")}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                  {/*<button onClick={() =>  window.location.replace("https://lix2022.github.io/My-Personal-Portfolio/#connect")}>Let’s Connect <ArrowRightCircle size={25} /></button>*/}
+                  <Link
+              to="connect"
+              smooth={true}
+              duration={500}
+              offset={-50}
+            >
+              <button className="vvd">
+                <span>Let’s Connect <ArrowRightCircle size={25}/></span>
+              </button>
+            </Link>
               </div>}
             </TrackVisibility>
           </Col>
