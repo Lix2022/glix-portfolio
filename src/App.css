@@ -230,6 +230,34 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 	border-color: transparent;
 }
 
+/* Media query for mobile screen */
+@media (max-width: 767px) {
+  nav.navbar .navbar-toggler-icon {
+    display: block;
+  }
+
+  nav.navbar .close-icon {
+   
+    width: 48px;
+    height: 40px;
+    position: relative;
+    transition: all 300ms linear;
+    top: -2px;
+    padding: 5px 4px;
+    margin-right: -10px;
+  }
+
+
+  nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    display: none;
+  }
+
+  nav.navbar .navbar-toggler[aria-expanded="true"] .close-icon {
+    display: block;
+  }
+}
+
+
 /************ Banner Css ************/
 .banner {
   margin-top: 0;
@@ -645,6 +673,18 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     padding-top: 8%;
     padding-bottom: 8%;
   }
-
   
+  @media (max-width: 768px) {
+    span.navbar-text{
+      display: none;
+
+    }
+  }
+
+  @media (max-width: 768px) {
+  .navbar .container{
+    padding-bottom: 10px;
+
+    }
+  }
 }

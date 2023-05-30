@@ -5,10 +5,12 @@ import logo from '../assets/img/logoFG.svg';
 import navIcon1 from '../assets/img/nav-icon1.svg';
 import navIcon2 from '../assets/img/nav-icon2.svg';
 import navIcon3 from '../assets/img/nav-icon3.svg';
+import closeIcon from '../assets/img/close-icon.svg';
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState('home');
   const [scrolled, setScrolled] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -28,14 +30,22 @@ export const NavBar = () => {
     setActiveLink(value);
   }
 
+  const toggleNavbar = () => {
+    setIsExpanded(!isExpanded);
+  }
+
   return (
     <Navbar expand="sm" className={scrolled ? "scrolled" : ""}>
       <Container>
         <Navbar.Brand href="https://lix2022.github.io/My-Personal-Portfolio/">
           <img src={logo} alt="Logo" className="logo-img" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav">
-          <span className="navbar-toggler-icon"></span>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={toggleNavbar}>
+          {isExpanded ? (
+            <img src={closeIcon} alt="Close Icon" className="close-icon" />
+          ) : (
+            <span className="navbar-toggler-icon"></span>
+          )}
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">

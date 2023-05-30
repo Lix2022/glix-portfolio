@@ -1,52 +1,34 @@
 const express = require("express");
 const router = express.Router();
 const cors = require("cors");
-const nodemailer = require("nodemailer");
+const EmailJS = require("emailjs-com");
 
-// server used to send send emails
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/", router);
-app.listen(5000, () => console.log("Server Running"));
-console.log(process.env.EMAIL_USER);
-console.log(process.env.EMAIL_PASS);
 
-const contactEmail = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: "glixtv27@gmail.com",
-    pass: ""
-  },
-});
+// Configure EmailJS credentials
+const serviceID = "service_7pr0dsc";
+const templateID = "template_v6oqht8";
+const userID = "Kbd5DAscDYv1le_5y";
 
-contactEmail.verify((error) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Ready to Send");
+router.post("/contact", async (req, res) => {
+  const { name, email, message } = req.body;
+
+  try {
+    await EmailJS.send(serviceID, templateID, {
+      from_name: `${name}`,
+      to_name: "Recipient Name",
+      email,
+      message,
+    }, userID);
+
+    res.json({ code: 200, status: "Message Sent" });
+  } catch (error) {
+    console.error("Error sending email:", error);
+    res.status(500).json({ code: 500, status: "Message not sent" });
   }
 });
 
-router.post("/contact", (req, res) => {
-  const name = req.body.firstName + req.body.lastName;
-  const email = req.body.email;
-  const message = req.body.message;
-  const phone = req.body.phone;
-  const mail = {
-    from: name,
-    to: "glixtv27@gmail.com",
-    subject: "Contact Form Submission - Portfolio",
-    html: `<p>Name: ${name}</p>
-           <p>Email: ${email}</p>
-           <p>Phone: ${phone}</p>
-           <p>Message: ${message}</p>`,
-  };
-  contactEmail.sendMail(mail, (error) => {
-    if (error) {
-      res.json(error);
-    } else {
-      res.json({ code: 200, status: "Message Sent" });
-    }
-  });
-});
+app.listen(5000, () => console.log("Server Running"));
