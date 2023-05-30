@@ -506,7 +506,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .contact h2 {
 	font-size: 45px;
 	font-weight: 700;
-  margin-bottom: 30px;
+  margin-bottom: 45px;
 }
 .contact form input, .contact form textarea {
   width: 100%;
@@ -538,19 +538,23 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-weight: 700;
   color: #000;
   background-color: #fff;
-  padding: 14px 48px;
+  padding: 14px 300px;
   font-size: 18px;
   margin-top: 25px;
   border-radius: 0;
   position: relative;
   transition: 0.3s ease-in-out;
+  width: 100%;
+  border-radius: 5px;
 }
 .contact form button span {
   z-index: 1;
   position: relative;
+  
 }
 .contact form button:hover {
   color: #fff;
+  
 }
 .contact form button::before {
   content: "";
@@ -562,9 +566,64 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   left: 0;
   z-index: 0;
   transition: 0.3s ease-in-out;
+  
+  
 }
 .contact form button:hover::before {
   width: 100%;
+  border-radius: 5px;
+}
+
+.Toastify__toast-body {
+    margin: auto 0;
+    flex: 1 1 auto;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+}
+.Toastify--animate-icon {
+  transition: transform 0.3s ease-in-out;
+}
+
+.Toastify--animate-icon.active {
+  transform: rotate(45deg);
+}
+
+.Toastify__zoom-enter {
+  animation: zoomIn 0.3s ease-in-out forwards;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.email-link {
+  color: #f9865f ;
+  text-decoration: none;
+  font-weight: 1000;
+}
+
+.email-icon {
+  margin-right: 5px;
+  margin-bottom: 3px;
+}
+
+.email-link:hover {
+  color: #7595ec;
+}
+
+
+@media (max-width: 768px) {
+  .contact form button {
+    padding: 14px 180px;
+  }
 }
 
 /************ Footer Css ************/

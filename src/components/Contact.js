@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
-import emailjs from "emailjs-com"; // Import emailjs package
+import emailjs from "emailjs-com";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import TrackVisibility from "react-on-screen";
+import { validate } from "email-validator";
+import { FaEnvelope } from "react-icons/fa";
 
 export const Contact = () => {
   const formInitialDetails = {
@@ -13,7 +17,6 @@ export const Contact = () => {
 
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState("Send");
-  const [status, setStatus] = useState({});
 
   const onFormUpdate = (category, value) => {
     setFormDetails({
@@ -24,24 +27,35 @@ export const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Basic form validation
+    if (!validate(formDetails.email)) {
+      toast.error("Please fill in all the fields or email me directly");
+      return;
+    }
+
+    // Email validation
+    if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formDetails.email)) {
+      toast.error("Please enter a valid email address or email me directly ");
+      return;
+    }
     setButtonText("Sending...");
 
     try {
       await emailjs.send("service_7pr0dsc", "template_v6oqht8", formDetails, "Kbd5DAscDYv1le_5y");
       setFormDetails(formInitialDetails);
-      setStatus({ success: true, message: "Message sent successfully" });
+      toast.success("Message sent successfully");
     } catch (error) {
       console.error("Error sending email:", error);
-      setStatus({ success: false, message: "Something went wrong, please try again later." });
+      toast.error("Something went wrong, please try again later.");
     }
 
     setButtonText("Send");
   };
 
-  
-
   return (
     <section className="contact" id="connect">
+      <ToastContainer position="top-right" autoClose={5000} />
       <Container>
         <Row className="align-items-center">
           <Col size={12} md={6}>
@@ -55,32 +69,27 @@ export const Contact = () => {
             <TrackVisibility>
               {({ isVisible }) => (
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <h2>Get In Touch</h2>
+                  <p>
+                    <a href="mailto:felixgayawon28@gmail.com" className="email-link">
+                      <FaEnvelope className="email-icon" />
+                      felixgayawon28@gmail.com
+                    </a>
+                  </p>
+                  <h2>Write me a Message 👇</h2>
                   <form onSubmit={handleSubmit}>
                     <Row>
                       <Col size={12} sm={6} className="px-1">
                         <input type="text" value={formDetails.name} placeholder="Full Name" onChange={(e) => onFormUpdate("name", e.target.value)} />
                       </Col>
-                       {/*<Col size={12} sm={6} className="px-1">
-                        <input type="text" value={formDetails.lastName} placeholder="Last Name" onChange={(e) => onFormUpdate("lastName", e.target.value)} />
-                      </Col>*/}
                       <Col size={12} sm={6} className="px-1">
                         <input type="email" value={formDetails.email} placeholder="Email Address" onChange={(e) => onFormUpdate("email", e.target.value)} />
                       </Col>
-                      {/*<Col size={12} sm={6} className="px-1">
-                        <input type="tel" value={formDetails.phone} placeholder="Phone No." onChange={(e) => onFormUpdate("phone", e.target.value)} />
-              </Col>*/}
                       <Col size={12} className="px-1">
                         <textarea rows="6" value={formDetails.message} placeholder="Message" onChange={(e) => onFormUpdate("message", e.target.value)}></textarea>
-                        <button type="submit">
+                        <button type="submit" onClick={handleSubmit} className="Toastify__toast-icon Toastify--animate-icon Toastify__zoom-enter">
                           <span>{buttonText}</span>
                         </button>
                       </Col>
-                      {status.message && (
-                        <Col>
-                          <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
-                        </Col>
-                      )}
                     </Row>
                   </form>
                 </div>
