@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import contactImg from "../assets/img/contact-img.svg";
+import contactImg from "../assets/img/email.gif";
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -69,9 +69,11 @@ export const Contact = () => {
             <TrackVisibility>
               {({ isVisible }) => (
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                  
                   <p>
+                  <h6>EMAIL ME DIRECTLY</h6>
                     <a href="mailto:felixgayawon28@gmail.com" className="email-link">
-                      <FaEnvelope className="email-icon" />
+                      <FaEnvelope className="email-icon" /> 
                       felixgayawon28@gmail.com
                     </a>
                   </p>

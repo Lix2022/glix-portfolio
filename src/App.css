@@ -41,6 +41,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
   line-height: normal;
 }
+h6{
+  font-size: 1rem;
+    margin-bottom: 1px;
+}
 
 p, a, li, button, ul {
   margin: 0;
@@ -262,10 +266,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner {
   margin-top: 0;
   padding: 260px 0 100px 0;
-  background-image: url('./assets/img/banner-bg.png');
+ /* background-image: url('./assets/img/banner-bg.webp');*/
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
+  background: linear-gradient(90.21deg, rgba(5, 4, 5, 0.5) -5.91%, rgba(3, 30, 110, 0.5) 111.58%);
 }
 .banner .tagline {
   font-weight: 700;
