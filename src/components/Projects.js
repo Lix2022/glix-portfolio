@@ -61,7 +61,7 @@ export const Projects = () => {
                         <Nav.Link eventKey="second">Graphics Design</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="third">Programming/VB.NET</Nav.Link>
+                        <Nav.Link eventKey="third">Programming VB.NET</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
                         <Nav.Link eventKey="fourth">Video Editing</Nav.Link>
@@ -80,7 +80,7 @@ export const Projects = () => {
                         <p>Content for the Graphics Design tab</p>
                       </Tab.Pane>
                       <Tab.Pane eventKey="third">
-                        <p>Content for the Programming/VB.NET tab</p>
+                        <p>Content for the Programming / VB.NET tab</p>
                       </Tab.Pane>
                       <Tab.Pane eventKey="fourth">
                         <p>Content for the Video Editing tab</p>

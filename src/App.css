@@ -426,8 +426,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 
-
-
 .project .nav.nav-pills .nav-link::before {
   content: "";
   position: absolute;
@@ -531,8 +529,37 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   z-index: -4;
 }
 
+/* Add a media query for mobile devices */
 
-/************ Projects Css ************/
+/* Styles for mobile devices */
+@media (max-width: 768px) {
+  .project .nav.nav-pills {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+  }
+
+  .project .nav.nav-pills .nav-item {
+    width: 25%; /* Adjust the width of each tab */
+  }
+
+  .project .nav.nav-pills .nav-link {
+    border-radius: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 10px 15px;
+    font-size: 10px; /* Adjust the font size of the tab text */
+    white-space: normal; /* Allow text to wrap to the next line */
+    text-align: center; /* Center the text horizontally */
+    display: flex;
+    align-items: center; /* Center the text vertically */
+    justify-content: center; /* Center the text horizontally */
+  }
+}
+
+
+/************ Contact css ************/
 .contact {
   background: linear-gradient(90.21deg, #0b173b -5.91%, #0c0c0f 111.58%);
   padding: 60px 0 100px 0;
