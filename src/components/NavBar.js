@@ -37,7 +37,7 @@ export const NavBar = () => {
   return (
     <Navbar expand="sm" className={scrolled ? "scrolled" : ""}>
       <Container>
-        <Navbar.Brand href="https://lix2022.github.io/My-Personal-Portfolio/">
+        <Navbar.Brand href="https://lix2022.github.io/glix-portfolio/">
           <img src={logo} alt="Logo" className="logo-img" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={toggleNavbar}>
